@@ -12,7 +12,6 @@ const app = express()
 app.use(middlewareLogReq)
 
 // pattrn -> app.method('path', handler())
-
 app.use('/users', usersRoutes)
 
 app.use("/", (req, res, next) => {
