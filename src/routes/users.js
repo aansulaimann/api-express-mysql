@@ -19,6 +19,6 @@ router.post('/', userController.createNewUsers)
 router.get("/", userController.getAllUsers)
 
 // UPDATE - PATCH
-
+router.patch("/:idUser", userController.updateUser)
 
 module.exports = router

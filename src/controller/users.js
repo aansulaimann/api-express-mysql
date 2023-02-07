@@ -1,5 +1,6 @@
 const getAllUsers = (req, res) => {
     const data = {
+        id: "1",
         name: "aan sulaiman",
         email: "aan@gmail.com",
         address: "Jakarta"
@@ -18,4 +19,14 @@ const createNewUsers = (req, res) => {
     })
 }
 
-module.exports = { getAllUsers, createNewUsers }
+const updateUser = (req, res) => {
+    const { idUser } = req.params
+    console.log("idUser: ", idUser)
+
+    res.json({
+        message: "UPDATE user success",
+        data: req.body
+    })
+}
+
+module.exports = { getAllUsers, createNewUsers, updateUser }
