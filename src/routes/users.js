@@ -15,7 +15,10 @@ router.post('/', userController.createNewUsers)
 //     })
 // })
 
+// READ - GET
 router.get("/", userController.getAllUsers)
+
+// UPDATE - PATCH
 
 
 module.exports = router

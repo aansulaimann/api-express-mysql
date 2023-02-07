@@ -1,6 +1,12 @@
 const getAllUsers = (req, res) => {
+    const data = {
+        name: "aan sulaiman",
+        email: "aan@gmail.com",
+        address: "Jakarta"
+    }
     res.json({
         message: "GET all users success",
+        data: data
     })
 }
 
