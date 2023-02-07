@@ -10,19 +10,10 @@ const app = express()
 
 // middleware
 app.use(middlewareLogReq)
+app.use(express.json())
 
 // pattrn -> app.method('path', handler())
 app.use('/users', usersRoutes)
-
-app.use("/", (req, res, next) => {
-    res.json({
-        nama: "Aan Sulaiman",
-        email: "aansulaiman92@gmail.com"
-    })
-})
-
-
-
 
 app.listen(4000, () => {
     console.log(`Listening on port http://localhost:4000`)

@@ -5,6 +5,10 @@ const userController = require('../controller/users.js')
 
 const router = express.Router()
 
+// CREATE - POST
+router.post('/', userController.createNewUsers)
+
+
 // router.get("/", (req, res, next) => {
 //     res.json({
 //         message: "Get users Success"
@@ -13,6 +17,5 @@ const router = express.Router()
 
 router.get("/", userController.getAllUsers)
 
-router.post('/', userController.createNewUsers)
 
 module.exports = router
