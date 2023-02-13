@@ -1,3 +1,6 @@
+require('dotenv').config()
+
+const PORT = process.env.PORT || 3000
 const express = require('express')
 
 // export routes users
@@ -5,25 +8,30 @@ const usersRoutes = require('./routes/users.js')
 
 // middleware
 const middlewareLogReq = require('./middleware/logs.js')
+const upload = require('./middleware/multer.js')
 
 const app = express()
 
 // middleware
 app.use(middlewareLogReq)
+app.use(express.json())
+app.use('/assets', express.static('public/image'))
 
 // pattrn -> app.method('path', handler())
 app.use('/users', usersRoutes)
 
-app.use("/", (req, res, next) => {
+app.post('/upload', upload.single('photo'), (req, res) => {
     res.json({
-        nama: "Aan Sulaiman",
-        email: "aansulaiman92@gmail.com"
+        message: "Upload berhasil"
     })
 })
 
+app.use((err, req, res, next) => {
+    res.json({
+        message: err.message
+    })
+})
 
-
-
-app.listen(4000, () => {
-    console.log(`Listening on port http://localhost:4000`)
+app.listen(PORT, () => {
+    console.log(`Listening on port http://localhost:${PORT}`)
 })

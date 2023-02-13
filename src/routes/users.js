@@ -11,8 +11,16 @@ const router = express.Router()
 //     })
 // })
 
+// CREATE - POST
+router.post('/', userController.createNewUsers)
+
+// READ - GET
 router.get("/", userController.getAllUsers)
 
-router.post('/', userController.createNewUsers)
+// UPDATE - PATCH
+router.patch("/:idUser", userController.updateUser)
+
+// DELETE - DELETE
+router.delete("/:idUser", userController.deleteUser)
 
 module.exports = router
