@@ -14,6 +14,7 @@ const app = express()
 // middleware
 app.use(middlewareLogReq)
 app.use(express.json())
+app.use('/assets', express.static('public/image'))
 
 // pattrn -> app.method('path', handler())
 app.use('/users', usersRoutes)
