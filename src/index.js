@@ -1,3 +1,6 @@
+require('dotenv').config()
+
+const PORT = process.env.PORT || 3000
 const express = require('express')
 
 // export routes users
@@ -15,6 +18,6 @@ app.use(express.json())
 // pattrn -> app.method('path', handler())
 app.use('/users', usersRoutes)
 
-app.listen(4000, () => {
-    console.log(`Listening on port http://localhost:4000`)
+app.listen(PORT, () => {
+    console.log(`Listening on port http://localhost:${PORT}`)
 })
